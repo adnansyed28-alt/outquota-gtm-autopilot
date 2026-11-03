@@ -1,0 +1,39 @@
+fit:
+  company_size:            # employee bands, first match wins
+    - {min: 200, max: 1000, points: 40}
+    - {min: 100, max: 199, points: 30}
+    - {min: 1001, max: 1500, points: 30}
+  company_size_default: 20
+  geography:
+    United States: 30
+    Canada: 20
+  geography_default: 0
+  seniority:               # first matching pattern wins (order matters)
+    - {pattern: "chief|cto|cio", points: 30}
+    - {pattern: "svp|vp", points: 28}
+    - {pattern: "head", points: 24}
+    - {pattern: "senior director", points: 22}
+    - {pattern: "director", points: 20}
+    - {pattern: "avp", points: 16}
+  seniority_default: 10
+
+intent:
+  company_signals:         # company-level trigger
+    Migrating data warehouse: 70
+    Announced AI initiative: 65
+    New CTO appointed: 60
+    Hiring data engineers: 55
+    Raised funding: 45
+    No recent signal: 5
+  company_default: 5
+  new_in_role:             # person just started the job, first match wins
+    - {max_days: 90, points: 25}
+    - {max_days: 180, points: 15}
+  linkedin_activity:       # posted or commented recently, first match wins
+    - {max_days: 30, points: 20}
+    - {max_days: 60, points: 15}
+  cap: 100
+
+tiers:
+  A: 75   # contact this week
+  B: 55   # add to sequence

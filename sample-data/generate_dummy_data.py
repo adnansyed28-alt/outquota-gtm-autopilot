@@ -1,6 +1,7 @@
 import csv, os, random
 
 random.seed(42)  # same data every run
+rng2 = random.Random(7)  # separate stream for the person-level signals
 
 PRE = ["Northwind", "Bluepeak", "Ironbridge", "Summit", "Harbor", "Crestline", "Redwood", "Lakeshore"]
 SUF = ["Financial", "Logistics", "Health", "Systems", "Retail", "Energy"]
@@ -45,6 +46,8 @@ for p, s in pairs[:40]:
             "email": f"{first}.{last}@{domain}".lower(),
             "linkedin_url": f"https://www.linkedin.com/in/fake-{first}-{last}-{random.randint(100, 999)}".lower(),
             "intent_signal": signal,
+            "days_in_role": rng2.randint(10, 89) if rng2.random() < 0.25 else rng2.randint(90, 2500),
+            "days_since_linkedin_activity": rng2.randint(1, 59) if rng2.random() < 0.35 else rng2.randint(60, 400),
         })
 
 # Deliberate mess for the cleaning step
