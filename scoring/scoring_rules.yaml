@@ -34,6 +34,7 @@ intent:
     - {max_days: 60, points: 15}
   cap: 100
 
-tiers:
-  A: 75   # contact this week
-  B: 55   # add to sequence
+# A lead is High intent if EITHER condition is true
+high_intent:
+  new_in_role_max_days: 90
+  linkedin_activity_max_days: 60
