@@ -1,0 +1,93 @@
+# Ideal Customer Profile
+company:
+  employee_range:
+    min: 30
+    max: 2000
+  geographies:
+    - United States
+    - Canada
+  industries:
+    - Financial Services
+    - Insurance
+    - Education
+    - Real Estate
+    - Health Care
+    - Manufacturing
+    - Logistics and Supply Chain
+    - E-commerce
+    - Retail
+    - Media and Entertainment
+    - Sports
+    - SaaS and Tech
+    - Professional Services
+    - Legal
+    - Accounting and Audit
+    - Management Consulting
+    - Architecture, Engineering and Design
+    - Private Equity
+    - Family Offices
+    - Family-Owned Conglomerates
+    - Pharma and Life Sciences
+    - Medical Devices
+    - Hospitality and Travel
+    - Construction and Infrastructure
+    - Energy and Utilities
+    - Renewables
+    - Consumer Goods and FMCG
+    - Automotive
+    - Staffing and Recruitment
+    - Marketing and Advertising Agencies
+    - Multi-Location Service Businesses
+    - Agriculture and Food Production
+    - Telecom
+    - Chemicals
+    - Mining and Heavy Industry
+
+personas:
+  data:
+    - SVP of Data
+    - VP of Data
+    - AVP of Data
+    - Senior Director of Data
+    - Director of Data
+    - Head of Data
+    - VP of Analytics
+    - Director of Analytics
+    - Head of Analytics
+    - AVP of Analytics
+    - VP of Data Engineering
+    - Director of Data Engineering
+    - Head of Data Engineering
+    - AVP of Data Engineering
+    - Head of Business Intelligence
+    - Director of Business Intelligence
+    - Head of Data Platform
+    - AVP of BI
+    - Director of Data Governance
+  ai:
+    - VP of AI
+    - Head of AI
+    - Director of AI
+    - Head of AI Enablement
+    - Director of AI Transformation
+    - Head of Digital Transformation
+    - VP of Digital Transformation
+    - Chief Digital Officer
+    - Head of Innovation
+    - Director of Innovation
+    - Head of Automation
+  engineering:
+    - CTO
+    - Chief Information Officer
+    - SVP of Engineering
+    - VP of Engineering
+    - Senior Director of Engineering
+    - Director of Engineering
+    - Head of Engineering
+    - VP of Technology
+    - Head of Technology
+    - Head of Enterprise Applications
+
+weights:
+  fit: 0.6
+  intent: 0.4
