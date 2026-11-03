@@ -84,6 +84,16 @@ def score_intent(row, rules):
     return intent_score, why
 
 
+def is_high_intent(row, rules):
+    """High intent = recently started the role OR recently active on LinkedIn."""
+    cfg = rules["high_intent"]
+    days_in_role = to_int(row.get("days_in_role"))
+    days_active = to_int(row.get("days_since_linkedin_activity"))
+    new_hire = days_in_role is not None and days_in_role <= cfg["new_in_role_max_days"]
+    active = days_active is not None and days_active <= cfg["linkedin_activity_max_days"]
+    return new_hire or active
+
+
 def tier_for(total, tiers):
     if total >= tiers["A"]:
         return "A"
@@ -107,10 +117,11 @@ def main():
         row["fit_score"] = fit_score
         row["intent_score"] = intent_score
         row["total_score"] = total
-        row["tier"] = tier_for(total, rules["tiers"])
+        row["tier"] = row["title_tier"]
+        row["intent_level"] = "High" if is_high_intent(row, rules) else "Standard"
         row["why"] = f"{fit_why}. {intent_why}."
 
-    rows.sort(key=lambda r: r["total_score"], reverse=True)
+    rows.sort(key=lambda r: (r["tier"], r["intent_level"] != "High", -r["total_score"]))
 
     with open(SCORED_PATH, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
@@ -119,9 +130,11 @@ def main():
 
     print(f"Scored {len(rows)} leads")
     print(f"Tier mix: {dict(sorted(Counter(r['tier'] for r in rows).items()))}")
+    mix = Counter(f"{r['tier']}/{r['intent_level']}" for r in rows)
+    print(f"Tier / intent mix: {dict(sorted(mix.items()))}")
     print("Top 5:")
     for r in rows[:5]:
-        print(f"  {r['total_score']:>5}  {r['tier']}  {r['contact_name']}, {r['title']} @ {r['company_name']}")
+        print(f"  {r['total_score']:>5}  {r['tier']}/{r['intent_level']}  {r['contact_name']}, {r['title']} @ {r['company_name']}")
         print(f"         {r['why']}")
 
 

@@ -18,11 +18,12 @@ def load_icp():
 
 
 def build_title_map(icp):
-    """Map each target title (lowercase) to its persona group."""
+    """Map each target title (lowercase) to (persona group, title tier)."""
     mapping = {}
-    for group, titles in icp["personas"].items():
-        for t in titles:
-            mapping[t.lower()] = group
+    for tier, key in (("B", "secondary_personas"), ("A", "personas")):
+        for group, titles in icp.get(key, {}).items():
+            for t in titles:
+                mapping[t.lower()] = (group, tier)
     return mapping
 
 
@@ -84,12 +85,14 @@ def main():
             row["reject_reason"] = reason
             rejected.append(row)
         else:
-            row["persona_group"] = title_map[row["title"].lower()]
+            group, tier = title_map[row["title"].lower()]
+            row["persona_group"] = group
+            row["title_tier"] = tier
             kept.append(row)
 
     base_fields = list(raw_rows[0].keys())
     with open(CLEAN_PATH, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=base_fields + ["persona_group"])
+        writer = csv.DictWriter(f, fieldnames=base_fields + ["persona_group", "title_tier"])
         writer.writeheader()
         writer.writerows(kept)
     with open(REJECT_PATH, "w", newline="") as f:

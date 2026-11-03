@@ -15,6 +15,8 @@ fit:
     - {pattern: "senior director", points: 22}
     - {pattern: "director", points: 20}
     - {pattern: "avp", points: 16}
+    - {pattern: "senior manager", points: 14}
+    - {pattern: "manager", points: 12}
   seniority_default: 10
 
 intent:

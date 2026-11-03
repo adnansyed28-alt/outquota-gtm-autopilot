@@ -50,6 +50,14 @@ for p, s in pairs[:40]:
             "days_since_linkedin_activity": rng2.randint(1, 59) if rng2.random() < 0.35 else rng2.randint(60, 400),
         })
 
+# Manager-level titles for Tier B (about 30% of non-"other" leads)
+MANAGER_TITLES = ["Senior Manager of Data", "Manager of Business Intelligence",
+                  "Manager of Analytics", "Senior Manager of Analytics",
+                  "Manager of Data Engineering", "Manager of AI", "Engineering Manager"]
+for r in rows:
+    if r["title"] not in TITLES["other"] and rng2.random() < 0.3:
+        r["title"] = rng2.choice(MANAGER_TITLES)
+
 # Deliberate mess for the cleaning step
 for r in random.sample(rows, 3):
     dup = dict(r)

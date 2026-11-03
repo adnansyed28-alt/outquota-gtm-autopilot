@@ -91,3 +91,24 @@ personas:
 weights:
   fit: 0.6
   intent: 0.4
+
+# Tier B: manager-level titles (Tier A is the "personas" list above)
+secondary_personas:
+  data:
+    - Senior Manager of Data
+    - Manager of Data
+    - Senior Manager of Analytics
+    - Manager of Analytics
+    - Senior Manager of Business Intelligence
+    - Manager of Business Intelligence
+    - Senior Manager of Data Engineering
+    - Manager of Data Engineering
+    - Manager of Data Governance
+    - Manager of Data Platform
+  ai:
+    - Senior Manager of AI
+    - Manager of AI
+    - Manager of Automation
+  engineering:
+    - Senior Manager of Engineering
+    - Engineering Manager
