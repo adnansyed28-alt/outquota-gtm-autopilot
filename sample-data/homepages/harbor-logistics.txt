@@ -1,0 +1,1 @@
+Harbor Logistics moves freight for mid-sized retailers across North America. This year we are consolidating our reporting onto a single cloud data warehouse and rolling out an AI-based route planning pilot. Our analytics team is growing, and we are hiring data engineers in Chicago. Founded in 2009, we operate 14 distribution centers.
