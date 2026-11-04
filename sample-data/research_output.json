@@ -1,0 +1,30 @@
+{
+  "crestline-systems": {
+    "what_they_do": "Crestline Systems builds payment software for regional banks.",
+    "industry": "Financial Technology",
+    "data_ai_signals": [
+      "Building an internal machine learning feature store",
+      "Appointed a new CTO to lead cloud migration"
+    ],
+    "evidence_quote": "our new platform team is building an internal machine learning feature store.",
+    "outreach_hook": "I noticed that your new platform team is building an internal machine learning feature store for your payment platform."
+  },
+  "harbor-logistics": {
+    "what_they_do": "Harbor Logistics moves freight for mid-sized retailers across North America.",
+    "industry": "Logistics",
+    "data_ai_signals": [
+      "Consolidating reporting onto a single cloud data warehouse",
+      "Rolling out an AI-based route planning pilot",
+      "Growing analytics team and hiring data engineers"
+    ],
+    "evidence_quote": "This year we are consolidating our reporting onto a single cloud data warehouse",
+    "outreach_hook": "I saw that Harbor Logistics is currently consolidating reporting onto a single cloud data warehouse while rolling out an AI-based route planning pilot."
+  },
+  "summit-retail": {
+    "what_they_do": "Summit Retail operates 120 neighborhood stores across the US.",
+    "industry": "Retail",
+    "data_ai_signals": [],
+    "evidence_quote": "",
+    "outreach_hook": ""
+  }
+}

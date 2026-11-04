@@ -26,7 +26,15 @@ def load_key():
 def call_api(body, key, attempts=5):
     """POST to the API, retrying temporary errors with a growing wait."""
     for attempt in range(1, attempts + 1):
-        resp = requests.post(URL, headers={"x-goog-api-key": key}, json=body, timeout=60)
+        try:
+            resp = requests.post(URL, headers={"x-goog-api-key": key}, json=body, timeout=90)
+        except requests.RequestException as err:
+            if attempt < attempts:
+                wait = 2 ** attempt
+                print(f"  Network problem ({type(err).__name__}), retrying in {wait}s (attempt {attempt}/{attempts})...")
+                time.sleep(wait)
+                continue
+            raise RuntimeError(f"Network error: {err}")
         if resp.status_code == 200:
             return resp.json()
         if resp.status_code in RETRY_CODES and attempt < attempts:
