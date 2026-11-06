@@ -91,5 +91,53 @@
     ],
     "evidence_quote": "This year we are moving all of our reporting onto a new cloud data platform",
     "outreach_hook": "I saw that Northwind Energy is moving all reporting to a new cloud data platform and hiring senior data engineers for your analytics team."
+  },
+  "lakeshore-retail": {
+    "what_they_do": "Lakeshore Retail serves customers in the logistics and supply chain sector.",
+    "industry": "Logistics and Supply Chain",
+    "data_ai_signals": [],
+    "evidence_quote": "",
+    "outreach_hook": ""
+  },
+  "northwind-retail": {
+    "what_they_do": "Northwind Retail serves customers in the e-commerce sector.",
+    "industry": "E-commerce",
+    "data_ai_signals": [
+      "Moving all reporting onto a new cloud data platform",
+      "Analytics team hiring two senior data engineers"
+    ],
+    "evidence_quote": "This year we are moving all of our reporting onto a new cloud data platform",
+    "outreach_hook": "I noticed Northwind Retail is moving all of its reporting onto a new cloud data platform this year and expanding the analytics team."
+  },
+  "summit-energy": {
+    "what_they_do": "Summit Energy serves customers in the legal sector.",
+    "industry": "Energy",
+    "data_ai_signals": [
+      "Nearly completed new data lakehouse",
+      "Upcoming AI forecasting project starting next quarter"
+    ],
+    "evidence_quote": "Our new data lakehouse is nearly complete, and an AI forecasting project built on top of it starts next quarter.",
+    "outreach_hook": "I noticed Summit Energy is finishing a new data lakehouse and kicking off an AI forecasting project next quarter."
+  },
+  "summit-health": {
+    "what_they_do": "Summit Health provides reliable services to customers in the health care sector.",
+    "industry": "Health Care",
+    "data_ai_signals": [],
+    "evidence_quote": "",
+    "outreach_hook": ""
+  },
+  "summit-retail": {
+    "what_they_do": "Summit Retail operates 120 neighborhood stores across the United States.",
+    "industry": "Retail",
+    "data_ai_signals": [],
+    "evidence_quote": "",
+    "outreach_hook": ""
+  },
+  "summit-systems": {
+    "what_they_do": "Summit Systems serves customers in the e-commerce sector.",
+    "industry": "E-commerce",
+    "data_ai_signals": [],
+    "evidence_quote": "",
+    "outreach_hook": ""
   }
 }

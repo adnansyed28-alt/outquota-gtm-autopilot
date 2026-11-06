@@ -2,7 +2,7 @@
 
 _Checked against hand-written expected answers on synthetic homepages._
 
-**10 of 11 researched companies passed all checks.** 5 not researched yet.
+**16 of 16 researched companies passed all checks.**
 
 | Company | Signal expected | Signal found | Result |
 |---|---|---|---|
@@ -15,9 +15,12 @@ _Checked against hand-written expected answers on synthetic homepages._
 | harbor-logistics | yes | yes | pass |
 | ironbridge-financial | yes | yes | pass |
 | ironbridge-logistics | no | no | pass |
-| lakeshore-retail | no | yes | found a signal that is not in the text |
+| lakeshore-retail | no | no | pass |
 | northwind-energy | yes | yes | pass |
-
-Not researched yet: northwind-retail, summit-energy, summit-health, summit-retail, summit-systems
+| northwind-retail | yes | yes | pass |
+| summit-energy | yes | yes | pass |
+| summit-health | no | no | pass |
+| summit-retail | no | no | pass |
+| summit-systems | no | no | pass |
 
 Caveat: the pages and the expected answers were both written for this project, so this shows the checks work, not how the model will do on real company websites.
