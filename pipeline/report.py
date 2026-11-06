@@ -48,6 +48,16 @@ def main():
             f"{r['contact_name']}, {r['title']} | {r['company_name']} | {r['why']} |"
         )
 
+    researched = [r for r in scored if r.get("research_hook")]
+    lines += ["", "## Researched leads (LLM, evidence-backed)", "",
+              "| Segment | Contact | Company | Evidence | Suggested opener |",
+              "|---|---|---|---|---|"]
+    for r in researched:
+        lines.append(
+            f"| {r['tier']} / {r['intent_level']} | {r['contact_name']}, {r['title']} | "
+            f"{r['company_name']} | {r['research_quote']} | {r['research_hook']} |"
+        )
+
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as f:
         f.write("\n".join(lines) + "\n")

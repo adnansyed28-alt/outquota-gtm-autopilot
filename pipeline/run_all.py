@@ -12,6 +12,11 @@ STEPS = [
     os.path.join(HERE, "report.py"),
 ]
 
+if "--with-research" in sys.argv:
+    STEPS.insert(2, os.path.join(HERE, "research.py"))
+else:
+    print("Using saved research results (add --with-research to call the API again)")
+
 for step in STEPS:
     print(f"\n=== {os.path.relpath(step, ROOT)} ===")
     subprocess.run([sys.executable, step], check=True)
