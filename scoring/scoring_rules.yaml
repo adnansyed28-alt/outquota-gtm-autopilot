@@ -40,3 +40,8 @@ intent:
 high_intent:
   new_in_role_max_days: 90
   linkedin_activity_max_days: 60
+
+# Used when LLM research exists for the company
+research:
+  points_per_signal: 25
+  max_points: 70

@@ -1,4 +1,5 @@
 import csv
+import json
 import os
 import re
 from collections import Counter
@@ -11,11 +12,20 @@ ICP_PATH = os.path.join(ROOT, "scoring", "icp.yaml")
 RULES_PATH = os.path.join(ROOT, "scoring", "scoring_rules.yaml")
 CLEAN_PATH = os.path.join(ROOT, "sample-data", "leads_clean.csv")
 SCORED_PATH = os.path.join(ROOT, "sample-data", "leads_scored.csv")
+RESEARCH_PATH = os.path.join(ROOT, "sample-data", "research_output.json")
 
 
 def load_yaml(path):
     with open(path) as f:
         return yaml.safe_load(f)
+
+
+def load_research():
+    """Load LLM research results keyed by company slug, if the file exists."""
+    if not os.path.exists(RESEARCH_PATH):
+        return {}
+    with open(RESEARCH_PATH) as f:
+        return json.load(f)
 
 
 def to_int(value):
@@ -63,9 +73,17 @@ def score_intent(row, rules):
     intent = rules["intent"]
     parts, notes = [], []
 
-    company_pts = intent["company_signals"].get(row["intent_signal"], intent["company_default"])
+    research = row.get("_research")
+    if research and "error" not in research:
+        cfg = rules["research"]
+        signals = research.get("data_ai_signals", [])
+        company_pts = min(len(signals) * cfg["points_per_signal"], cfg["max_points"]) or intent["company_default"]
+        label = f"{len(signals)} researched signal(s)"
+    else:
+        company_pts = intent["company_signals"].get(row["intent_signal"], intent["company_default"])
+        label = f"{row['intent_signal']} (no research)"
     parts.append(company_pts)
-    notes.append(f"{row['intent_signal']} (+{company_pts})")
+    notes.append(f"{label} (+{company_pts})")
 
     days_in_role = to_int(row.get("days_in_role"))
     role_pts = band_points(days_in_role, intent["new_in_role"])
@@ -94,23 +112,17 @@ def is_high_intent(row, rules):
     return new_hire or active
 
 
-def tier_for(total, tiers):
-    if total >= tiers["A"]:
-        return "A"
-    if total >= tiers["B"]:
-        return "B"
-    return "C"
-
-
 def main():
     icp = load_yaml(ICP_PATH)
     rules = load_yaml(RULES_PATH)
     w_fit, w_intent = icp["weights"]["fit"], icp["weights"]["intent"]
+    research_by_company = load_research()
 
     with open(CLEAN_PATH, newline="") as f:
         rows = list(csv.DictReader(f))
 
     for row in rows:
+        row["_research"] = research_by_company.get(row["domain"].split(".")[0])
         fit_score, fit_why = score_fit(row, rules)
         intent_score, intent_why = score_intent(row, rules)
         total = round(fit_score * w_fit + intent_score * w_intent, 1)
@@ -120,6 +132,9 @@ def main():
         row["tier"] = row["title_tier"]
         row["intent_level"] = "High" if is_high_intent(row, rules) else "Standard"
         row["why"] = f"{fit_why}. {intent_why}."
+        found = row.pop("_research") or {}
+        row["research_hook"] = found.get("outreach_hook", "")
+        row["research_quote"] = found.get("evidence_quote", "")
 
     rows.sort(key=lambda r: (r["tier"], r["intent_level"] != "High", -r["total_score"]))
 
