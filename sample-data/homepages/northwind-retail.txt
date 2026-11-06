@@ -1,0 +1,1 @@
+Northwind Retail serves customers in the e-commerce sector. Founded over a decade ago, we employ about 537 people and pride ourselves on reliable service. This year we are moving all of our reporting onto a new cloud data platform, and our analytics team is hiring two senior data engineers.

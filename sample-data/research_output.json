@@ -1,13 +1,57 @@
 {
+  "bluepeak-energy": {
+    "what_they_do": "Bluepeak Energy serves customers in the telecom sector.",
+    "industry": "Telecom",
+    "data_ai_signals": [
+      "New data lakehouse is nearly complete",
+      "AI forecasting project starting next quarter"
+    ],
+    "evidence_quote": "Our new data lakehouse is nearly complete, and an AI forecasting project built on top of it starts next quarter.",
+    "outreach_hook": "I saw that your team is completing a new data lakehouse and kicking off an AI forecasting project next quarter."
+  },
+  "bluepeak-retail": {
+    "what_they_do": "Bluepeak Retail serves customers in the automotive sector.",
+    "industry": "Automotive",
+    "data_ai_signals": [],
+    "evidence_quote": "",
+    "outreach_hook": ""
+  },
+  "bluepeak-systems": {
+    "what_they_do": "Bluepeak Systems serves customers in the automotive sector.",
+    "industry": "Automotive",
+    "data_ai_signals": [
+      "New data lakehouse nearly complete",
+      "AI forecasting project starting next quarter"
+    ],
+    "evidence_quote": "Our new data lakehouse is nearly complete, and an AI forecasting project built on top of it starts next quarter.",
+    "outreach_hook": "I saw that Bluepeak Systems is nearly finished with its new data lakehouse and preparing to launch an AI forecasting project next quarter."
+  },
+  "crestline-logistics": {
+    "what_they_do": "Crestline Logistics provides services to customers in the insurance sector.",
+    "industry": "Logistics",
+    "data_ai_signals": [],
+    "evidence_quote": "",
+    "outreach_hook": ""
+  },
   "crestline-systems": {
     "what_they_do": "Crestline Systems builds payment software for regional banks.",
-    "industry": "Financial Technology",
+    "industry": "Banking Software",
     "data_ai_signals": [
       "Building an internal machine learning feature store",
-      "Appointed a new CTO to lead cloud migration"
+      "Undergoing a cloud migration led by a new CTO"
     ],
     "evidence_quote": "our new platform team is building an internal machine learning feature store.",
-    "outreach_hook": "I noticed that your new platform team is building an internal machine learning feature store for your payment platform."
+    "outreach_hook": "I saw that your platform team is currently building an internal machine learning feature store at Crestline Systems."
+  },
+  "harbor-financial": {
+    "what_they_do": "Harbor Financial serves customers in the logistics and supply chain sector.",
+    "industry": "Logistics and supply chain",
+    "data_ai_signals": [
+      "Launched a pilot of an AI assistant for customer support",
+      "Appointed their first Head of AI"
+    ],
+    "evidence_quote": "We recently launched a pilot of an AI assistant for our customer support team",
+    "outreach_hook": "I saw that Harbor Financial recently launched a pilot AI assistant for your customer support team and appointed your first Head of AI."
   },
   "harbor-logistics": {
     "what_they_do": "Harbor Logistics moves freight for mid-sized retailers across North America.",
@@ -15,16 +59,47 @@
     "data_ai_signals": [
       "Consolidating reporting onto a single cloud data warehouse",
       "Rolling out an AI-based route planning pilot",
-      "Growing analytics team and hiring data engineers"
+      "Growing analytics team",
+      "Hiring data engineers in Chicago"
     ],
-    "evidence_quote": "This year we are consolidating our reporting onto a single cloud data warehouse",
-    "outreach_hook": "I saw that Harbor Logistics is currently consolidating reporting onto a single cloud data warehouse while rolling out an AI-based route planning pilot."
+    "evidence_quote": "Our analytics team is growing, and we are hiring data engineers in Chicago.",
+    "outreach_hook": "I saw that Harbor Logistics is rolling out an AI-based route planning pilot and expanding your analytics team in Chicago."
   },
-  "summit-retail": {
-    "what_they_do": "Summit Retail operates 120 neighborhood stores across the US.",
-    "industry": "Retail",
+  "ironbridge-financial": {
+    "what_they_do": "Ironbridge Financial serves customers in the e-commerce sector.",
+    "industry": "Financial Services",
+    "data_ai_signals": [
+      "Launched a pilot of an AI assistant for their customer support team",
+      "Appointed their first Head of AI"
+    ],
+    "evidence_quote": "We recently launched a pilot of an AI assistant for our customer support team",
+    "outreach_hook": "I noticed Ironbridge Financial recently appointed its first Head of AI to lead a new customer support AI assistant pilot."
+  },
+  "ironbridge-logistics": {
+    "what_they_do": "Ironbridge Logistics provides logistics services to customers in the manufacturing sector.",
+    "industry": "Logistics",
     "data_ai_signals": [],
     "evidence_quote": "",
     "outreach_hook": ""
+  },
+  "lakeshore-retail": {
+    "what_they_do": "Lakeshore Retail serves customers in the logistics and supply chain sector.",
+    "industry": "Logistics and supply chain",
+    "data_ai_signals": [
+      "Focus on data privacy and data protection",
+      "No current plans to adopt AI tools"
+    ],
+    "evidence_quote": "We have no plans to adopt AI tools at this time and prefer a personal approach.",
+    "outreach_hook": "I noticed that Lakeshore Retail takes data privacy seriously and currently has no plans to adopt AI tools."
+  },
+  "northwind-energy": {
+    "what_they_do": "Northwind Energy provides services to customers in the financial services sector.",
+    "industry": "Financial Services",
+    "data_ai_signals": [
+      "Moving all reporting onto a new cloud data platform",
+      "Analytics team is hiring two senior data engineers"
+    ],
+    "evidence_quote": "This year we are moving all of our reporting onto a new cloud data platform",
+    "outreach_hook": "I saw that Northwind Energy is moving all reporting to a new cloud data platform and hiring senior data engineers for your analytics team."
   }
 }

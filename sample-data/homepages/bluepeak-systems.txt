@@ -1,0 +1,1 @@
+Bluepeak Systems serves customers in the automotive sector. Founded over a decade ago, we employ about 1652 people and pride ourselves on reliable service. Our new data lakehouse is nearly complete, and an AI forecasting project built on top of it starts next quarter.

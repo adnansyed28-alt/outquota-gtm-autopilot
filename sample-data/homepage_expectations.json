@@ -1,0 +1,18 @@
+{
+  "harbor-logistics": true,
+  "crestline-systems": true,
+  "summit-retail": false,
+  "northwind-energy": true,
+  "harbor-financial": true,
+  "bluepeak-energy": true,
+  "bluepeak-retail": false,
+  "lakeshore-retail": false,
+  "bluepeak-systems": true,
+  "crestline-logistics": false,
+  "summit-systems": false,
+  "northwind-retail": true,
+  "ironbridge-financial": true,
+  "summit-energy": true,
+  "ironbridge-logistics": false,
+  "summit-health": false
+}
