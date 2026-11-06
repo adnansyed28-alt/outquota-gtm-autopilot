@@ -14,7 +14,7 @@ def read(name):
 
 
 def main():
-    raw = read("leads_raw.csv")
+    raw = read("leads_batch.csv")
     rejected = read("leads_rejected.csv")
     scored = read("leads_scored.csv")
 

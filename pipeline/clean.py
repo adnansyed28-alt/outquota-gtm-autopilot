@@ -7,7 +7,7 @@ import yaml
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 ICP_PATH = os.path.join(ROOT, "scoring", "icp.yaml")
-RAW_PATH = os.path.join(ROOT, "sample-data", "leads_raw.csv")
+RAW_PATH = os.path.join(ROOT, "sample-data", "leads_batch.csv")
 CLEAN_PATH = os.path.join(ROOT, "sample-data", "leads_clean.csv")
 REJECT_PATH = os.path.join(ROOT, "sample-data", "leads_rejected.csv")
 
