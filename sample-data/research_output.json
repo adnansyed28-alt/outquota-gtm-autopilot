@@ -82,16 +82,6 @@
     "evidence_quote": "",
     "outreach_hook": ""
   },
-  "lakeshore-retail": {
-    "what_they_do": "Lakeshore Retail serves customers in the logistics and supply chain sector.",
-    "industry": "Logistics and supply chain",
-    "data_ai_signals": [
-      "Focus on data privacy and data protection",
-      "No current plans to adopt AI tools"
-    ],
-    "evidence_quote": "We have no plans to adopt AI tools at this time and prefer a personal approach.",
-    "outreach_hook": "I noticed that Lakeshore Retail takes data privacy seriously and currently has no plans to adopt AI tools."
-  },
   "northwind-energy": {
     "what_they_do": "Northwind Energy provides services to customers in the financial services sector.",
     "industry": "Financial Services",

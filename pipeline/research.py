@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 import time
 
 import requests
@@ -71,11 +72,16 @@ def main():
         with open(OUT_PATH) as f:
             old = json.load(f)
         results = {k: v for k, v in old.items() if "error" not in v}  # keep only successes
+    only = set(sys.argv[1:])  # optional: rerun just these companies
+    for c in only:
+        results.pop(c, None)
     print(f"Already researched: {len(results)} companies (these are skipped)")
 
     made_a_call = False
     for name in sorted(os.listdir(HOMEPAGES)):
         company = name.replace(".txt", "")
+        if only and company not in only:
+            continue
         if company in results:
             continue
         if made_a_call:
