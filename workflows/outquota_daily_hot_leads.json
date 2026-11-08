@@ -1,0 +1,117 @@
+{
+  "name": "OutQuota daily hot leads",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * 1-5"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -16,
+        -176
+      ],
+      "id": "6984a471-ec0c-4027-91db-df7d2f2abbd1",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "command": "cd \"$HOME/outquota-gtm-autopilot\" && python3 pipeline/alerts.py"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        272,
+        -176
+      ],
+      "id": "3db87c8e-8d95-46b6-8929-119697506877",
+      "name": "Execute Command"
+    },
+    {
+      "parameters": {
+        "jsCode": "const out = JSON.parse($input.first().json.stdout);\nreturn [{ json: { count: out.count, text: out.text } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        512,
+        48
+      ],
+      "id": "4b490335-c876-499e-99c3-655c54061967",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "SLACK_WEBHOOK_URL_PLACEHOLDER",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ text: $json.text }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        800,
+        -160
+      ],
+      "id": "8f94af4c-b361-4088-9fb0-242c0cf01f9b",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "af09c016-19b9-48e7-98bf-ca9bd488a81e",
+  "meta": {
+    "instanceId": "d226cb1451c20d2f443f0a4d8f5e6b3dc72944f7d469eccfc966e145ef69a6b2"
+  },
+  "nodeGroups": [],
+  "id": "L3AGP4tuKphg6cDp",
+  "tags": []
+}
